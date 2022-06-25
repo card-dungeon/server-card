@@ -23,19 +23,19 @@ type cardServer struct {
 	cardpb.UnimplementedCardServer
 }
 
-func (s *cardServer) GetCharacterCard(ctx context.Context, req *cardpb.GetCharacterCardReq) (*cardpb.GetCharacterCardRes, error) {
+func (s *cardServer) GetCharacterCard(ctx context.Context, req *cardpb.CardId) (*cardpb.CharacterCard, error) {
 	cardId := req.CardId
 	for _, c := range db.CharCardList {
 		if c.CardId != cardId {
 			continue
 		}
-		return &cardpb.GetCharacterCardRes{CharacterCardMessage: c}, nil
+		return c, nil
 	}
-	return &cardpb.GetCharacterCardRes{}, nil
+	return &cardpb.CharacterCard{}, nil
 }
 
-func (s *cardServer) GetCharacterCardList(ctx context.Context, req *cardpb.GetCharacterCardListReq) (*cardpb.GetCharacterCardListRes, error) {
-	return &cardpb.GetCharacterCardListRes{CharacterCardMessages: db.CharCardList}, nil
+func (s *cardServer) GetCharacterCardList(ctx context.Context, req *cardpb.GetList) (*cardpb.CharacterCardList, error) {
+	return &cardpb.CharacterCardList{CharacterCards: db.CharCardList}, nil
 }
 
 func main() {
