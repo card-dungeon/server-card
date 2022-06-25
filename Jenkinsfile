@@ -3,6 +3,7 @@ pipeline {
     agent any
     tools {
         go 'go 1.18.3'
+        docker 'docker'
     }
     environment {
         GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
