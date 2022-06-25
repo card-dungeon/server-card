@@ -34,13 +34,13 @@ pipeline {
             }
 
             steps {                           
-                script {
+                // script {
                     node {
                         def app
 
-                        stage('Clone repository') {
-                            checkout scm
-                        }
+                        // stage('Clone repository') {
+                        //     checkout scm
+                        // }
 
                         stage('Build And Push image') {  
                             docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {                                                 
@@ -51,7 +51,7 @@ pipeline {
                     }                 
                 }
             }
-        }
+        // }
 
     }
 }
