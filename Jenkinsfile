@@ -36,6 +36,6 @@ pipeline {
         //         sh 'docker push shadowshotx/product-go-micro'
         //         }
         //     }
-        // }
+        // } x
     }
 }
