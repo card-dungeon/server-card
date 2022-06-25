@@ -23,6 +23,7 @@ pipeline {
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
+                sh 'go version'
                 // sh 'docker build . -t gmae199boy/server-card'
             }
         }
