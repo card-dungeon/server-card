@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.28.0
 // 	protoc        v3.19.4
-// source: card.proto
+// source: protos/v1/card/card.proto
 
 package __
 
@@ -22,12 +22,12 @@ const (
 
 //
 //캐릭터 카드
-type CharacterCardMessage struct {
+type CharacterCard struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	CardId         int32           `protobuf:"varint,1,opt,name=card_id,json=cardId,proto3" json:"card_id,omitempty"`
+	CardId         int32           `protobuf:"varint,1,opt,name=cardId,proto3" json:"cardId,omitempty"`
 	Name           string          `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Desc           string          `protobuf:"bytes,3,opt,name=desc,proto3" json:"desc,omitempty"`
 	Sprite         string          `protobuf:"bytes,4,opt,name=sprite,proto3" json:"sprite,omitempty"`
@@ -37,23 +37,23 @@ type CharacterCardMessage struct {
 	CharacterSkill *CharacterSkill `protobuf:"bytes,8,opt,name=characterSkill,proto3" json:"characterSkill,omitempty"`
 }
 
-func (x *CharacterCardMessage) Reset() {
-	*x = CharacterCardMessage{}
+func (x *CharacterCard) Reset() {
+	*x = CharacterCard{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[0]
+		mi := &file_protos_v1_card_card_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *CharacterCardMessage) String() string {
+func (x *CharacterCard) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CharacterCardMessage) ProtoMessage() {}
+func (*CharacterCard) ProtoMessage() {}
 
-func (x *CharacterCardMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[0]
+func (x *CharacterCard) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -64,61 +64,61 @@ func (x *CharacterCardMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CharacterCardMessage.ProtoReflect.Descriptor instead.
-func (*CharacterCardMessage) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{0}
+// Deprecated: Use CharacterCard.ProtoReflect.Descriptor instead.
+func (*CharacterCard) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CharacterCardMessage) GetCardId() int32 {
+func (x *CharacterCard) GetCardId() int32 {
 	if x != nil {
 		return x.CardId
 	}
 	return 0
 }
 
-func (x *CharacterCardMessage) GetName() string {
+func (x *CharacterCard) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *CharacterCardMessage) GetDesc() string {
+func (x *CharacterCard) GetDesc() string {
 	if x != nil {
 		return x.Desc
 	}
 	return ""
 }
 
-func (x *CharacterCardMessage) GetSprite() string {
+func (x *CharacterCard) GetSprite() string {
 	if x != nil {
 		return x.Sprite
 	}
 	return ""
 }
 
-func (x *CharacterCardMessage) GetAtk() int32 {
+func (x *CharacterCard) GetAtk() int32 {
 	if x != nil {
 		return x.Atk
 	}
 	return 0
 }
 
-func (x *CharacterCardMessage) GetHp() int32 {
+func (x *CharacterCard) GetHp() int32 {
 	if x != nil {
 		return x.Hp
 	}
 	return 0
 }
 
-func (x *CharacterCardMessage) GetSd() int32 {
+func (x *CharacterCard) GetSd() int32 {
 	if x != nil {
 		return x.Sd
 	}
 	return 0
 }
 
-func (x *CharacterCardMessage) GetCharacterSkill() *CharacterSkill {
+func (x *CharacterCard) GetCharacterSkill() *CharacterSkill {
 	if x != nil {
 		return x.CharacterSkill
 	}
@@ -138,7 +138,7 @@ type CharacterSkill struct {
 func (x *CharacterSkill) Reset() {
 	*x = CharacterSkill{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[1]
+		mi := &file_protos_v1_card_card_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -151,7 +151,7 @@ func (x *CharacterSkill) String() string {
 func (*CharacterSkill) ProtoMessage() {}
 
 func (x *CharacterSkill) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[1]
+	mi := &file_protos_v1_card_card_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -164,7 +164,7 @@ func (x *CharacterSkill) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CharacterSkill.ProtoReflect.Descriptor instead.
 func (*CharacterSkill) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{1}
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CharacterSkill) GetName() string {
@@ -188,210 +188,31 @@ func (x *CharacterSkill) GetCooldown() int32 {
 	return 0
 }
 
-type GetCharacterCardReq struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CardId int32 `protobuf:"varint,1,opt,name=card_id,json=cardId,proto3" json:"card_id,omitempty"`
-}
-
-func (x *GetCharacterCardReq) Reset() {
-	*x = GetCharacterCardReq{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetCharacterCardReq) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCharacterCardReq) ProtoMessage() {}
-
-func (x *GetCharacterCardReq) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCharacterCardReq.ProtoReflect.Descriptor instead.
-func (*GetCharacterCardReq) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *GetCharacterCardReq) GetCardId() int32 {
-	if x != nil {
-		return x.CardId
-	}
-	return 0
-}
-
-type GetCharacterCardRes struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CharacterCardMessage *CharacterCardMessage `protobuf:"bytes,1,opt,name=characterCard_message,json=characterCardMessage,proto3" json:"characterCard_message,omitempty"`
-}
-
-func (x *GetCharacterCardRes) Reset() {
-	*x = GetCharacterCardRes{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetCharacterCardRes) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCharacterCardRes) ProtoMessage() {}
-
-func (x *GetCharacterCardRes) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCharacterCardRes.ProtoReflect.Descriptor instead.
-func (*GetCharacterCardRes) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetCharacterCardRes) GetCharacterCardMessage() *CharacterCardMessage {
-	if x != nil {
-		return x.CharacterCardMessage
-	}
-	return nil
-}
-
-type GetCharacterCardListReq struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *GetCharacterCardListReq) Reset() {
-	*x = GetCharacterCardListReq{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetCharacterCardListReq) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCharacterCardListReq) ProtoMessage() {}
-
-func (x *GetCharacterCardListReq) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCharacterCardListReq.ProtoReflect.Descriptor instead.
-func (*GetCharacterCardListReq) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{4}
-}
-
-type GetCharacterCardListRes struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CharacterCardMessages []*CharacterCardMessage `protobuf:"bytes,1,rep,name=characterCard_messages,json=characterCardMessages,proto3" json:"characterCard_messages,omitempty"`
-}
-
-func (x *GetCharacterCardListRes) Reset() {
-	*x = GetCharacterCardListRes{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetCharacterCardListRes) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCharacterCardListRes) ProtoMessage() {}
-
-func (x *GetCharacterCardListRes) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCharacterCardListRes.ProtoReflect.Descriptor instead.
-func (*GetCharacterCardListRes) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetCharacterCardListRes) GetCharacterCardMessages() []*CharacterCardMessage {
-	if x != nil {
-		return x.CharacterCardMessages
-	}
-	return nil
-}
-
 //
 //장비 카드
-type EquipCardMessage struct {
+type EquipCard struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *EquipCardMessage) Reset() {
-	*x = EquipCardMessage{}
+func (x *EquipCard) Reset() {
+	*x = EquipCard{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[6]
+		mi := &file_protos_v1_card_card_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *EquipCardMessage) String() string {
+func (x *EquipCard) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EquipCardMessage) ProtoMessage() {}
+func (*EquipCard) ProtoMessage() {}
 
-func (x *EquipCardMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[6]
+func (x *EquipCard) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -402,215 +223,36 @@ func (x *EquipCardMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EquipCardMessage.ProtoReflect.Descriptor instead.
-func (*EquipCardMessage) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{6}
-}
-
-type GetEquipCardReq struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CardId int32 `protobuf:"varint,1,opt,name=card_id,json=cardId,proto3" json:"card_id,omitempty"`
-}
-
-func (x *GetEquipCardReq) Reset() {
-	*x = GetEquipCardReq{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[7]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetEquipCardReq) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEquipCardReq) ProtoMessage() {}
-
-func (x *GetEquipCardReq) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[7]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEquipCardReq.ProtoReflect.Descriptor instead.
-func (*GetEquipCardReq) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetEquipCardReq) GetCardId() int32 {
-	if x != nil {
-		return x.CardId
-	}
-	return 0
-}
-
-type GetEquipCardRes struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	EquipCardMessage *EquipCardMessage `protobuf:"bytes,1,opt,name=equipCard_message,json=equipCardMessage,proto3" json:"equipCard_message,omitempty"`
-}
-
-func (x *GetEquipCardRes) Reset() {
-	*x = GetEquipCardRes{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetEquipCardRes) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEquipCardRes) ProtoMessage() {}
-
-func (x *GetEquipCardRes) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEquipCardRes.ProtoReflect.Descriptor instead.
-func (*GetEquipCardRes) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *GetEquipCardRes) GetEquipCardMessage() *EquipCardMessage {
-	if x != nil {
-		return x.EquipCardMessage
-	}
-	return nil
-}
-
-type GetEquipCardListReq struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *GetEquipCardListReq) Reset() {
-	*x = GetEquipCardListReq{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetEquipCardListReq) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEquipCardListReq) ProtoMessage() {}
-
-func (x *GetEquipCardListReq) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEquipCardListReq.ProtoReflect.Descriptor instead.
-func (*GetEquipCardListReq) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{9}
-}
-
-type GetEquipCardListRes struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	EquipCardMessages []*EquipCardMessage `protobuf:"bytes,1,rep,name=equipCard_messages,json=equipCardMessages,proto3" json:"equipCard_messages,omitempty"`
-}
-
-func (x *GetEquipCardListRes) Reset() {
-	*x = GetEquipCardListRes{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetEquipCardListRes) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEquipCardListRes) ProtoMessage() {}
-
-func (x *GetEquipCardListRes) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEquipCardListRes.ProtoReflect.Descriptor instead.
-func (*GetEquipCardListRes) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *GetEquipCardListRes) GetEquipCardMessages() []*EquipCardMessage {
-	if x != nil {
-		return x.EquipCardMessages
-	}
-	return nil
+// Deprecated: Use EquipCard.ProtoReflect.Descriptor instead.
+func (*EquipCard) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{2}
 }
 
 //
 //스킬 카드
-type SkillCardMessage struct {
+type SkillCard struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *SkillCardMessage) Reset() {
-	*x = SkillCardMessage{}
+func (x *SkillCard) Reset() {
+	*x = SkillCard{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[11]
+		mi := &file_protos_v1_card_card_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *SkillCardMessage) String() string {
+func (x *SkillCard) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SkillCardMessage) ProtoMessage() {}
+func (*SkillCard) ProtoMessage() {}
 
-func (x *SkillCardMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[11]
+func (x *SkillCard) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -621,36 +263,38 @@ func (x *SkillCardMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SkillCardMessage.ProtoReflect.Descriptor instead.
-func (*SkillCardMessage) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{11}
+// Deprecated: Use SkillCard.ProtoReflect.Descriptor instead.
+func (*SkillCard) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{3}
 }
 
-type GetSkillCardReq struct {
+//
+//req, res
+type CardId struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	CardId int32 `protobuf:"varint,1,opt,name=card_id,json=cardId,proto3" json:"card_id,omitempty"`
+	CardId int32 `protobuf:"varint,1,opt,name=cardId,proto3" json:"cardId,omitempty"`
 }
 
-func (x *GetSkillCardReq) Reset() {
-	*x = GetSkillCardReq{}
+func (x *CardId) Reset() {
+	*x = CardId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[12]
+		mi := &file_protos_v1_card_card_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *GetSkillCardReq) String() string {
+func (x *CardId) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSkillCardReq) ProtoMessage() {}
+func (*CardId) ProtoMessage() {}
 
-func (x *GetSkillCardReq) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[12]
+func (x *CardId) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,43 +305,41 @@ func (x *GetSkillCardReq) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSkillCardReq.ProtoReflect.Descriptor instead.
-func (*GetSkillCardReq) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{12}
+// Deprecated: Use CardId.ProtoReflect.Descriptor instead.
+func (*CardId) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetSkillCardReq) GetCardId() int32 {
+func (x *CardId) GetCardId() int32 {
 	if x != nil {
 		return x.CardId
 	}
 	return 0
 }
 
-type GetSkillCardRes struct {
+type GetList struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
-
-	SkillCardMessage *SkillCardMessage `protobuf:"bytes,1,opt,name=skillCard_message,json=skillCardMessage,proto3" json:"skillCard_message,omitempty"`
 }
 
-func (x *GetSkillCardRes) Reset() {
-	*x = GetSkillCardRes{}
+func (x *GetList) Reset() {
+	*x = GetList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[13]
+		mi := &file_protos_v1_card_card_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *GetSkillCardRes) String() string {
+func (x *GetList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSkillCardRes) ProtoMessage() {}
+func (*GetList) ProtoMessage() {}
 
-func (x *GetSkillCardRes) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[13]
+func (x *GetList) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -708,41 +350,38 @@ func (x *GetSkillCardRes) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSkillCardRes.ProtoReflect.Descriptor instead.
-func (*GetSkillCardRes) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{13}
+// Deprecated: Use GetList.ProtoReflect.Descriptor instead.
+func (*GetList) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetSkillCardRes) GetSkillCardMessage() *SkillCardMessage {
-	if x != nil {
-		return x.SkillCardMessage
-	}
-	return nil
-}
-
-type GetSkillCardListReq struct {
+type CardList struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	CharacterCards []*CharacterCardList `protobuf:"bytes,1,rep,name=characterCards,proto3" json:"characterCards,omitempty"`
+	EquipCards     []*EquipCardList     `protobuf:"bytes,2,rep,name=equipCards,proto3" json:"equipCards,omitempty"`
+	SkillCards     []*SkillCardList     `protobuf:"bytes,3,rep,name=skillCards,proto3" json:"skillCards,omitempty"`
 }
 
-func (x *GetSkillCardListReq) Reset() {
-	*x = GetSkillCardListReq{}
+func (x *CardList) Reset() {
+	*x = CardList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[14]
+		mi := &file_protos_v1_card_card_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *GetSkillCardListReq) String() string {
+func (x *CardList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSkillCardListReq) ProtoMessage() {}
+func (*CardList) ProtoMessage() {}
 
-func (x *GetSkillCardListReq) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[14]
+func (x *CardList) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -753,36 +392,57 @@ func (x *GetSkillCardListReq) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSkillCardListReq.ProtoReflect.Descriptor instead.
-func (*GetSkillCardListReq) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{14}
+// Deprecated: Use CardList.ProtoReflect.Descriptor instead.
+func (*CardList) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{6}
 }
 
-type GetSkillCardListRes struct {
+func (x *CardList) GetCharacterCards() []*CharacterCardList {
+	if x != nil {
+		return x.CharacterCards
+	}
+	return nil
+}
+
+func (x *CardList) GetEquipCards() []*EquipCardList {
+	if x != nil {
+		return x.EquipCards
+	}
+	return nil
+}
+
+func (x *CardList) GetSkillCards() []*SkillCardList {
+	if x != nil {
+		return x.SkillCards
+	}
+	return nil
+}
+
+type CharacterCardList struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SkillCardMessages []*SkillCardMessage `protobuf:"bytes,1,rep,name=skillCard_messages,json=skillCardMessages,proto3" json:"skillCard_messages,omitempty"`
+	CharacterCards []*CharacterCard `protobuf:"bytes,1,rep,name=characterCards,proto3" json:"characterCards,omitempty"`
 }
 
-func (x *GetSkillCardListRes) Reset() {
-	*x = GetSkillCardListRes{}
+func (x *CharacterCardList) Reset() {
+	*x = CharacterCardList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[15]
+		mi := &file_protos_v1_card_card_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *GetSkillCardListRes) String() string {
+func (x *CharacterCardList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSkillCardListRes) ProtoMessage() {}
+func (*CharacterCardList) ProtoMessage() {}
 
-func (x *GetSkillCardListRes) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[15]
+func (x *CharacterCardList) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -793,43 +453,43 @@ func (x *GetSkillCardListRes) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSkillCardListRes.ProtoReflect.Descriptor instead.
-func (*GetSkillCardListRes) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{15}
+// Deprecated: Use CharacterCardList.ProtoReflect.Descriptor instead.
+func (*CharacterCardList) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GetSkillCardListRes) GetSkillCardMessages() []*SkillCardMessage {
+func (x *CharacterCardList) GetCharacterCards() []*CharacterCard {
 	if x != nil {
-		return x.SkillCardMessages
+		return x.CharacterCards
 	}
 	return nil
 }
 
-//
-//올 카드
-type GetCardListReq struct {
+type EquipCardList struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	EquipCards []*EquipCard `protobuf:"bytes,1,rep,name=equipCards,proto3" json:"equipCards,omitempty"`
 }
 
-func (x *GetCardListReq) Reset() {
-	*x = GetCardListReq{}
+func (x *EquipCardList) Reset() {
+	*x = EquipCardList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[16]
+		mi := &file_protos_v1_card_card_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *GetCardListReq) String() string {
+func (x *EquipCardList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCardListReq) ProtoMessage() {}
+func (*EquipCardList) ProtoMessage() {}
 
-func (x *GetCardListReq) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[16]
+func (x *EquipCardList) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -840,38 +500,43 @@ func (x *GetCardListReq) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCardListReq.ProtoReflect.Descriptor instead.
-func (*GetCardListReq) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{16}
+// Deprecated: Use EquipCardList.ProtoReflect.Descriptor instead.
+func (*EquipCardList) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{8}
 }
 
-type GetCardListRes struct {
+func (x *EquipCardList) GetEquipCards() []*EquipCard {
+	if x != nil {
+		return x.EquipCards
+	}
+	return nil
+}
+
+type SkillCardList struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	CharacterCardMessages []*CharacterCardMessage `protobuf:"bytes,1,rep,name=characterCard_messages,json=characterCardMessages,proto3" json:"characterCard_messages,omitempty"`
-	EquipCardMessage      []*EquipCardMessage     `protobuf:"bytes,2,rep,name=equipCard_message,json=equipCardMessage,proto3" json:"equipCard_message,omitempty"`
-	SkillCardMessage      []*SkillCardMessage     `protobuf:"bytes,3,rep,name=skillCard_message,json=skillCardMessage,proto3" json:"skillCard_message,omitempty"`
+	SkillCards []*SkillCard `protobuf:"bytes,1,rep,name=skillCards,proto3" json:"skillCards,omitempty"`
 }
 
-func (x *GetCardListRes) Reset() {
-	*x = GetCardListRes{}
+func (x *SkillCardList) Reset() {
+	*x = SkillCardList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_card_proto_msgTypes[17]
+		mi := &file_protos_v1_card_card_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *GetCardListRes) String() string {
+func (x *SkillCardList) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCardListRes) ProtoMessage() {}
+func (*SkillCardList) ProtoMessage() {}
 
-func (x *GetCardListRes) ProtoReflect() protoreflect.Message {
-	mi := &file_card_proto_msgTypes[17]
+func (x *SkillCardList) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_v1_card_card_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -882,231 +547,160 @@ func (x *GetCardListRes) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCardListRes.ProtoReflect.Descriptor instead.
-func (*GetCardListRes) Descriptor() ([]byte, []int) {
-	return file_card_proto_rawDescGZIP(), []int{17}
+// Deprecated: Use SkillCardList.ProtoReflect.Descriptor instead.
+func (*SkillCardList) Descriptor() ([]byte, []int) {
+	return file_protos_v1_card_card_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetCardListRes) GetCharacterCardMessages() []*CharacterCardMessage {
+func (x *SkillCardList) GetSkillCards() []*SkillCard {
 	if x != nil {
-		return x.CharacterCardMessages
+		return x.SkillCards
 	}
 	return nil
 }
 
-func (x *GetCardListRes) GetEquipCardMessage() []*EquipCardMessage {
-	if x != nil {
-		return x.EquipCardMessage
-	}
-	return nil
-}
+var File_protos_v1_card_card_proto protoreflect.FileDescriptor
 
-func (x *GetCardListRes) GetSkillCardMessage() []*SkillCardMessage {
-	if x != nil {
-		return x.SkillCardMessage
-	}
-	return nil
-}
-
-var File_card_proto protoreflect.FileDescriptor
-
-var file_card_proto_rawDesc = []byte{
-	0x0a, 0x0a, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x04, 0x63, 0x61,
-	0x72, 0x64, 0x22, 0xdf, 0x01, 0x0a, 0x14, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72,
-	0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x63,
-	0x61, 0x72, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x63, 0x61,
-	0x72, 0x64, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x64, 0x65, 0x73, 0x63,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x64, 0x65, 0x73, 0x63, 0x12, 0x16, 0x0a, 0x06,
-	0x73, 0x70, 0x72, 0x69, 0x74, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x70,
-	0x72, 0x69, 0x74, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x61, 0x74, 0x6b, 0x18, 0x05, 0x20, 0x01, 0x28,
-	0x05, 0x52, 0x03, 0x61, 0x74, 0x6b, 0x12, 0x0e, 0x0a, 0x02, 0x68, 0x70, 0x18, 0x06, 0x20, 0x01,
-	0x28, 0x05, 0x52, 0x02, 0x68, 0x70, 0x12, 0x0e, 0x0a, 0x02, 0x73, 0x64, 0x18, 0x07, 0x20, 0x01,
-	0x28, 0x05, 0x52, 0x02, 0x73, 0x64, 0x12, 0x3c, 0x0a, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63,
-	0x74, 0x65, 0x72, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14,
-	0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x53,
-	0x6b, 0x69, 0x6c, 0x6c, 0x52, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x53,
-	0x6b, 0x69, 0x6c, 0x6c, 0x22, 0x54, 0x0a, 0x0e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65,
-	0x72, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x64, 0x65,
-	0x73, 0x63, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x64, 0x65, 0x73, 0x63, 0x12, 0x1a,
-	0x0a, 0x08, 0x63, 0x6f, 0x6f, 0x6c, 0x64, 0x6f, 0x77, 0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05,
-	0x52, 0x08, 0x63, 0x6f, 0x6f, 0x6c, 0x64, 0x6f, 0x77, 0x6e, 0x22, 0x2e, 0x0a, 0x13, 0x47, 0x65,
-	0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65,
-	0x71, 0x12, 0x17, 0x0a, 0x07, 0x63, 0x61, 0x72, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x52, 0x06, 0x63, 0x61, 0x72, 0x64, 0x49, 0x64, 0x22, 0x66, 0x0a, 0x13, 0x47, 0x65,
-	0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65,
-	0x73, 0x12, 0x4f, 0x0a, 0x15, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61,
-	0x72, 0x64, 0x5f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x1a, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65,
-	0x72, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x14, 0x63, 0x68,
-	0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x22, 0x19, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74,
-	0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x22, 0x6c, 0x0a,
-	0x17, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72,
-	0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x12, 0x51, 0x0a, 0x16, 0x63, 0x68, 0x61, 0x72,
-	0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x5f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e,
-	0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x52, 0x15, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43,
-	0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x22, 0x12, 0x0a, 0x10, 0x45,
-	0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22,
-	0x2a, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x52,
-	0x65, 0x71, 0x12, 0x17, 0x0a, 0x07, 0x63, 0x61, 0x72, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x05, 0x52, 0x06, 0x63, 0x61, 0x72, 0x64, 0x49, 0x64, 0x22, 0x56, 0x0a, 0x0f, 0x47,
-	0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65, 0x73, 0x12, 0x43,
-	0x0a, 0x11, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x5f, 0x6d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x63, 0x61, 0x72, 0x64,
-	0x2e, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x52, 0x10, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x22, 0x15, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43,
-	0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x22, 0x5c, 0x0a, 0x13, 0x47, 0x65,
-	0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65,
-	0x73, 0x12, 0x45, 0x0a, 0x12, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x5f, 0x6d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e,
-	0x63, 0x61, 0x72, 0x64, 0x2e, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65,
-	0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x11, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64,
-	0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x22, 0x12, 0x0a, 0x10, 0x53, 0x6b, 0x69, 0x6c,
-	0x6c, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x2a, 0x0a, 0x0f,
-	0x47, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65, 0x71, 0x12,
-	0x17, 0x0a, 0x07, 0x63, 0x61, 0x72, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
-	0x52, 0x06, 0x63, 0x61, 0x72, 0x64, 0x49, 0x64, 0x22, 0x56, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x53,
-	0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65, 0x73, 0x12, 0x43, 0x0a, 0x11, 0x73,
-	0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x5f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x53, 0x6b,
-	0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x10,
-	0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
-	0x22, 0x15, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64,
-	0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x22, 0x5c, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x53, 0x6b,
-	0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x12, 0x45,
-	0x0a, 0x12, 0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x5f, 0x6d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x63, 0x61, 0x72,
-	0x64, 0x2e, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x52, 0x11, 0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x73, 0x22, 0x10, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x43, 0x61, 0x72, 0x64,
-	0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x22, 0xed, 0x01, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x43,
-	0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x12, 0x51, 0x0a, 0x16, 0x63, 0x68,
-	0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x5f, 0x6d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x63, 0x61, 0x72,
-	0x64, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x4d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x15, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65,
-	0x72, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x12, 0x43, 0x0a,
-	0x11, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x5f, 0x6d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e,
-	0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
-	0x52, 0x10, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x12, 0x43, 0x0a, 0x11, 0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x5f,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e,
-	0x63, 0x61, 0x72, 0x64, 0x2e, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4d, 0x65,
-	0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x10, 0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64,
-	0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32, 0xf1, 0x03, 0x0a, 0x04, 0x43, 0x61, 0x72, 0x64,
-	0x12, 0x48, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72,
-	0x43, 0x61, 0x72, 0x64, 0x12, 0x19, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x43,
-	0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65, 0x71, 0x1a,
-	0x19, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63,
-	0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65, 0x73, 0x12, 0x3c, 0x0a, 0x0c, 0x47, 0x65,
-	0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x12, 0x15, 0x2e, 0x63, 0x61, 0x72,
-	0x64, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65,
-	0x71, 0x1a, 0x15, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69,
-	0x70, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65, 0x73, 0x12, 0x3c, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x53,
-	0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x12, 0x15, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e,
-	0x47, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x52, 0x65, 0x71, 0x1a,
-	0x15, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43,
-	0x61, 0x72, 0x64, 0x52, 0x65, 0x73, 0x12, 0x54, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61,
-	0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x1d,
-	0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74,
-	0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x1d, 0x2e,
-	0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65,
-	0x72, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x12, 0x48, 0x0a, 0x10,
-	0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74,
-	0x12, 0x19, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70,
-	0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x19, 0x2e, 0x63, 0x61,
-	0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4c,
-	0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x12, 0x48, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x53, 0x6b, 0x69,
-	0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x19, 0x2e, 0x63, 0x61, 0x72,
-	0x64, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69,
-	0x73, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x19, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74,
-	0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73,
-	0x12, 0x39, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x12,
-	0x14, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69,
-	0x73, 0x74, 0x52, 0x65, 0x71, 0x1a, 0x14, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74,
-	0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x42, 0x03, 0x5a, 0x01, 0x2e,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+var file_protos_v1_card_card_proto_rawDesc = []byte{
+	0x0a, 0x19, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x61, 0x72, 0x64,
+	0x2f, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x04, 0x63, 0x61, 0x72,
+	0x64, 0x22, 0xd7, 0x01, 0x0a, 0x0d, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43,
+	0x61, 0x72, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x63, 0x61, 0x72, 0x64, 0x49, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x05, 0x52, 0x06, 0x63, 0x61, 0x72, 0x64, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e,
+	0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12,
+	0x12, 0x0a, 0x04, 0x64, 0x65, 0x73, 0x63, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x64,
+	0x65, 0x73, 0x63, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x70, 0x72, 0x69, 0x74, 0x65, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x70, 0x72, 0x69, 0x74, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x61,
+	0x74, 0x6b, 0x18, 0x05, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x61, 0x74, 0x6b, 0x12, 0x0e, 0x0a,
+	0x02, 0x68, 0x70, 0x18, 0x06, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x68, 0x70, 0x12, 0x0e, 0x0a,
+	0x02, 0x73, 0x64, 0x18, 0x07, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x73, 0x64, 0x12, 0x3c, 0x0a,
+	0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x18,
+	0x08, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x68, 0x61,
+	0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x52, 0x0e, 0x63, 0x68, 0x61,
+	0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x22, 0x54, 0x0a, 0x0e, 0x43,
+	0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x12, 0x12, 0x0a,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
+	0x65, 0x12, 0x12, 0x0a, 0x04, 0x64, 0x65, 0x73, 0x63, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x04, 0x64, 0x65, 0x73, 0x63, 0x12, 0x1a, 0x0a, 0x08, 0x63, 0x6f, 0x6f, 0x6c, 0x64, 0x6f, 0x77,
+	0x6e, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x63, 0x6f, 0x6f, 0x6c, 0x64, 0x6f, 0x77,
+	0x6e, 0x22, 0x0b, 0x0a, 0x09, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x22, 0x0b,
+	0x0a, 0x09, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x22, 0x20, 0x0a, 0x06, 0x43,
+	0x61, 0x72, 0x64, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x63, 0x61, 0x72, 0x64, 0x49, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x63, 0x61, 0x72, 0x64, 0x49, 0x64, 0x22, 0x09, 0x0a,
+	0x07, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x22, 0xb5, 0x01, 0x0a, 0x08, 0x43, 0x61, 0x72,
+	0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x3f, 0x0a, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74,
+	0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e,
+	0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61,
+	0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65,
+	0x72, 0x43, 0x61, 0x72, 0x64, 0x73, 0x12, 0x33, 0x0a, 0x0a, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43,
+	0x61, 0x72, 0x64, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x63, 0x61, 0x72,
+	0x64, 0x2e, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x52,
+	0x0a, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x73, 0x12, 0x33, 0x0a, 0x0a, 0x73,
+	0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32,
+	0x13, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64,
+	0x4c, 0x69, 0x73, 0x74, 0x52, 0x0a, 0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x73,
+	0x22, 0x50, 0x0a, 0x11, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72,
+	0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x3b, 0x0a, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74,
+	0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e,
+	0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61,
+	0x72, 0x64, 0x52, 0x0e, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72,
+	0x64, 0x73, 0x22, 0x40, 0x0a, 0x0d, 0x45, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4c,
+	0x69, 0x73, 0x74, 0x12, 0x2f, 0x0a, 0x0a, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x45,
+	0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x52, 0x0a, 0x65, 0x71, 0x75, 0x69, 0x70, 0x43,
+	0x61, 0x72, 0x64, 0x73, 0x22, 0x40, 0x0a, 0x0d, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72,
+	0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x2f, 0x0a, 0x0a, 0x73, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61,
+	0x72, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x63, 0x61, 0x72, 0x64,
+	0x2e, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x52, 0x0a, 0x73, 0x6b, 0x69, 0x6c,
+	0x6c, 0x43, 0x61, 0x72, 0x64, 0x73, 0x32, 0xf9, 0x02, 0x0a, 0x04, 0x43, 0x61, 0x72, 0x64, 0x12,
+	0x35, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43,
+	0x61, 0x72, 0x64, 0x12, 0x0c, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x61, 0x72, 0x64, 0x49,
+	0x64, 0x1a, 0x13, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74,
+	0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x12, 0x2d, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75,
+	0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x12, 0x0c, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x61,
+	0x72, 0x64, 0x49, 0x64, 0x1a, 0x0f, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x45, 0x71, 0x75, 0x69,
+	0x70, 0x43, 0x61, 0x72, 0x64, 0x12, 0x2d, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x6c,
+	0x6c, 0x43, 0x61, 0x72, 0x64, 0x12, 0x0c, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x61, 0x72,
+	0x64, 0x49, 0x64, 0x1a, 0x0f, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x53, 0x6b, 0x69, 0x6c, 0x6c,
+	0x43, 0x61, 0x72, 0x64, 0x12, 0x3e, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x43, 0x68, 0x61, 0x72, 0x61,
+	0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x0d, 0x2e, 0x63,
+	0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x63, 0x61,
+	0x72, 0x64, 0x2e, 0x43, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x43, 0x61, 0x72, 0x64,
+	0x4c, 0x69, 0x73, 0x74, 0x12, 0x36, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x45, 0x71, 0x75, 0x69, 0x70,
+	0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x0d, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e,
+	0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x45,
+	0x71, 0x75, 0x69, 0x70, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x36, 0x0a, 0x10,
+	0x47, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69, 0x73, 0x74,
+	0x12, 0x0d, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x4c, 0x69, 0x73, 0x74, 0x1a,
+	0x13, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x53, 0x6b, 0x69, 0x6c, 0x6c, 0x43, 0x61, 0x72, 0x64,
+	0x4c, 0x69, 0x73, 0x74, 0x12, 0x2c, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x43, 0x61, 0x72, 0x64, 0x4c,
+	0x69, 0x73, 0x74, 0x12, 0x0d, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x47, 0x65, 0x74, 0x4c, 0x69,
+	0x73, 0x74, 0x1a, 0x0e, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x2e, 0x43, 0x61, 0x72, 0x64, 0x4c, 0x69,
+	0x73, 0x74, 0x42, 0x03, 0x5a, 0x01, 0x2e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_card_proto_rawDescOnce sync.Once
-	file_card_proto_rawDescData = file_card_proto_rawDesc
+	file_protos_v1_card_card_proto_rawDescOnce sync.Once
+	file_protos_v1_card_card_proto_rawDescData = file_protos_v1_card_card_proto_rawDesc
 )
 
-func file_card_proto_rawDescGZIP() []byte {
-	file_card_proto_rawDescOnce.Do(func() {
-		file_card_proto_rawDescData = protoimpl.X.CompressGZIP(file_card_proto_rawDescData)
+func file_protos_v1_card_card_proto_rawDescGZIP() []byte {
+	file_protos_v1_card_card_proto_rawDescOnce.Do(func() {
+		file_protos_v1_card_card_proto_rawDescData = protoimpl.X.CompressGZIP(file_protos_v1_card_card_proto_rawDescData)
 	})
-	return file_card_proto_rawDescData
+	return file_protos_v1_card_card_proto_rawDescData
 }
 
-var file_card_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
-var file_card_proto_goTypes = []interface{}{
-	(*CharacterCardMessage)(nil),    // 0: card.CharacterCardMessage
-	(*CharacterSkill)(nil),          // 1: card.CharacterSkill
-	(*GetCharacterCardReq)(nil),     // 2: card.GetCharacterCardReq
-	(*GetCharacterCardRes)(nil),     // 3: card.GetCharacterCardRes
-	(*GetCharacterCardListReq)(nil), // 4: card.GetCharacterCardListReq
-	(*GetCharacterCardListRes)(nil), // 5: card.GetCharacterCardListRes
-	(*EquipCardMessage)(nil),        // 6: card.EquipCardMessage
-	(*GetEquipCardReq)(nil),         // 7: card.GetEquipCardReq
-	(*GetEquipCardRes)(nil),         // 8: card.GetEquipCardRes
-	(*GetEquipCardListReq)(nil),     // 9: card.GetEquipCardListReq
-	(*GetEquipCardListRes)(nil),     // 10: card.GetEquipCardListRes
-	(*SkillCardMessage)(nil),        // 11: card.SkillCardMessage
-	(*GetSkillCardReq)(nil),         // 12: card.GetSkillCardReq
-	(*GetSkillCardRes)(nil),         // 13: card.GetSkillCardRes
-	(*GetSkillCardListReq)(nil),     // 14: card.GetSkillCardListReq
-	(*GetSkillCardListRes)(nil),     // 15: card.GetSkillCardListRes
-	(*GetCardListReq)(nil),          // 16: card.GetCardListReq
-	(*GetCardListRes)(nil),          // 17: card.GetCardListRes
+var file_protos_v1_card_card_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_protos_v1_card_card_proto_goTypes = []interface{}{
+	(*CharacterCard)(nil),     // 0: card.CharacterCard
+	(*CharacterSkill)(nil),    // 1: card.CharacterSkill
+	(*EquipCard)(nil),         // 2: card.EquipCard
+	(*SkillCard)(nil),         // 3: card.SkillCard
+	(*CardId)(nil),            // 4: card.CardId
+	(*GetList)(nil),           // 5: card.GetList
+	(*CardList)(nil),          // 6: card.CardList
+	(*CharacterCardList)(nil), // 7: card.CharacterCardList
+	(*EquipCardList)(nil),     // 8: card.EquipCardList
+	(*SkillCardList)(nil),     // 9: card.SkillCardList
 }
-var file_card_proto_depIdxs = []int32{
-	1,  // 0: card.CharacterCardMessage.characterSkill:type_name -> card.CharacterSkill
-	0,  // 1: card.GetCharacterCardRes.characterCard_message:type_name -> card.CharacterCardMessage
-	0,  // 2: card.GetCharacterCardListRes.characterCard_messages:type_name -> card.CharacterCardMessage
-	6,  // 3: card.GetEquipCardRes.equipCard_message:type_name -> card.EquipCardMessage
-	6,  // 4: card.GetEquipCardListRes.equipCard_messages:type_name -> card.EquipCardMessage
-	11, // 5: card.GetSkillCardRes.skillCard_message:type_name -> card.SkillCardMessage
-	11, // 6: card.GetSkillCardListRes.skillCard_messages:type_name -> card.SkillCardMessage
-	0,  // 7: card.GetCardListRes.characterCard_messages:type_name -> card.CharacterCardMessage
-	6,  // 8: card.GetCardListRes.equipCard_message:type_name -> card.EquipCardMessage
-	11, // 9: card.GetCardListRes.skillCard_message:type_name -> card.SkillCardMessage
-	2,  // 10: card.Card.GetCharacterCard:input_type -> card.GetCharacterCardReq
-	7,  // 11: card.Card.GetEquipCard:input_type -> card.GetEquipCardReq
-	12, // 12: card.Card.GetSkillCard:input_type -> card.GetSkillCardReq
-	4,  // 13: card.Card.GetCharacterCardList:input_type -> card.GetCharacterCardListReq
-	9,  // 14: card.Card.GetEquipCardList:input_type -> card.GetEquipCardListReq
-	14, // 15: card.Card.GetSkillCardList:input_type -> card.GetSkillCardListReq
-	16, // 16: card.Card.GetCardList:input_type -> card.GetCardListReq
-	3,  // 17: card.Card.GetCharacterCard:output_type -> card.GetCharacterCardRes
-	8,  // 18: card.Card.GetEquipCard:output_type -> card.GetEquipCardRes
-	13, // 19: card.Card.GetSkillCard:output_type -> card.GetSkillCardRes
-	5,  // 20: card.Card.GetCharacterCardList:output_type -> card.GetCharacterCardListRes
-	10, // 21: card.Card.GetEquipCardList:output_type -> card.GetEquipCardListRes
-	15, // 22: card.Card.GetSkillCardList:output_type -> card.GetSkillCardListRes
-	17, // 23: card.Card.GetCardList:output_type -> card.GetCardListRes
-	17, // [17:24] is the sub-list for method output_type
-	10, // [10:17] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+var file_protos_v1_card_card_proto_depIdxs = []int32{
+	1,  // 0: card.CharacterCard.characterSkill:type_name -> card.CharacterSkill
+	7,  // 1: card.CardList.characterCards:type_name -> card.CharacterCardList
+	8,  // 2: card.CardList.equipCards:type_name -> card.EquipCardList
+	9,  // 3: card.CardList.skillCards:type_name -> card.SkillCardList
+	0,  // 4: card.CharacterCardList.characterCards:type_name -> card.CharacterCard
+	2,  // 5: card.EquipCardList.equipCards:type_name -> card.EquipCard
+	3,  // 6: card.SkillCardList.skillCards:type_name -> card.SkillCard
+	4,  // 7: card.Card.GetCharacterCard:input_type -> card.CardId
+	4,  // 8: card.Card.GetEquipCard:input_type -> card.CardId
+	4,  // 9: card.Card.GetSkillCard:input_type -> card.CardId
+	5,  // 10: card.Card.GetCharacterCardList:input_type -> card.GetList
+	5,  // 11: card.Card.GetEquipCardList:input_type -> card.GetList
+	5,  // 12: card.Card.GetSkillCardList:input_type -> card.GetList
+	5,  // 13: card.Card.GetCardList:input_type -> card.GetList
+	0,  // 14: card.Card.GetCharacterCard:output_type -> card.CharacterCard
+	2,  // 15: card.Card.GetEquipCard:output_type -> card.EquipCard
+	3,  // 16: card.Card.GetSkillCard:output_type -> card.SkillCard
+	7,  // 17: card.Card.GetCharacterCardList:output_type -> card.CharacterCardList
+	8,  // 18: card.Card.GetEquipCardList:output_type -> card.EquipCardList
+	9,  // 19: card.Card.GetSkillCardList:output_type -> card.SkillCardList
+	6,  // 20: card.Card.GetCardList:output_type -> card.CardList
+	14, // [14:21] is the sub-list for method output_type
+	7,  // [7:14] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
-func init() { file_card_proto_init() }
-func file_card_proto_init() {
-	if File_card_proto != nil {
+func init() { file_protos_v1_card_card_proto_init() }
+func file_protos_v1_card_card_proto_init() {
+	if File_protos_v1_card_card_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_card_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CharacterCardMessage); i {
+		file_protos_v1_card_card_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CharacterCard); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1117,7 +711,7 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_protos_v1_card_card_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CharacterSkill); i {
 			case 0:
 				return &v.state
@@ -1129,8 +723,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetCharacterCardReq); i {
+		file_protos_v1_card_card_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EquipCard); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1141,8 +735,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetCharacterCardRes); i {
+		file_protos_v1_card_card_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SkillCard); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1153,8 +747,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetCharacterCardListReq); i {
+		file_protos_v1_card_card_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CardId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1165,8 +759,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetCharacterCardListRes); i {
+		file_protos_v1_card_card_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetList); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1177,8 +771,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*EquipCardMessage); i {
+		file_protos_v1_card_card_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CardList); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1189,8 +783,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetEquipCardReq); i {
+		file_protos_v1_card_card_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CharacterCardList); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1201,8 +795,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetEquipCardRes); i {
+		file_protos_v1_card_card_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EquipCardList); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1213,104 +807,8 @@ func file_card_proto_init() {
 				return nil
 			}
 		}
-		file_card_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetEquipCardListReq); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetEquipCardListRes); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SkillCardMessage); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetSkillCardReq); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetSkillCardRes); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetSkillCardListReq); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetSkillCardListRes); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetCardListReq); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_card_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetCardListRes); i {
+		file_protos_v1_card_card_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SkillCardList); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1326,18 +824,18 @@ func file_card_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_card_proto_rawDesc,
+			RawDescriptor: file_protos_v1_card_card_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   18,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_card_proto_goTypes,
-		DependencyIndexes: file_card_proto_depIdxs,
-		MessageInfos:      file_card_proto_msgTypes,
+		GoTypes:           file_protos_v1_card_card_proto_goTypes,
+		DependencyIndexes: file_protos_v1_card_card_proto_depIdxs,
+		MessageInfos:      file_protos_v1_card_card_proto_msgTypes,
 	}.Build()
-	File_card_proto = out.File
-	file_card_proto_rawDesc = nil
-	file_card_proto_goTypes = nil
-	file_card_proto_depIdxs = nil
+	File_protos_v1_card_card_proto = out.File
+	file_protos_v1_card_card_proto_rawDesc = nil
+	file_protos_v1_card_card_proto_goTypes = nil
+	file_protos_v1_card_card_proto_depIdxs = nil
 }

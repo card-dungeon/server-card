@@ -5,20 +5,20 @@ package card;
 option go_package=".";
 
 service Card{
-    rpc GetCharacterCard(GetCharacterCardReq) returns (GetCharacterCardRes);
-    rpc GetEquipCard(GetEquipCardReq) returns (GetEquipCardRes);
-    rpc GetSkillCard(GetSkillCardReq) returns (GetSkillCardRes);
-    rpc GetCharacterCardList(GetCharacterCardListReq) returns (GetCharacterCardListRes);
-    rpc GetEquipCardList(GetEquipCardListReq) returns (GetEquipCardListRes);
-    rpc GetSkillCardList(GetSkillCardListReq) returns (GetSkillCardListRes);
-    rpc GetCardList(GetCardListReq) returns (GetCardListRes);
+    rpc GetCharacterCard(CardId) returns (CharacterCard);
+    rpc GetEquipCard(CardId) returns (EquipCard);
+    rpc GetSkillCard(CardId) returns (SkillCard);
+    rpc GetCharacterCardList(GetList) returns (CharacterCardList);
+    rpc GetEquipCardList(GetList) returns (EquipCardList);
+    rpc GetSkillCardList(GetList) returns (SkillCardList);
+    rpc GetCardList(GetList) returns (CardList);
 }
 
 /*
     캐릭터 카드
 */
-message CharacterCardMessage {
-    int32 card_id=1;
+message CharacterCard {
+    int32 cardId=1;
     string name=2;
     string desc=3;
     string sprite=4;
@@ -34,69 +34,40 @@ message CharacterSkill {
     int32 cooldown=3;
 }
 
-message GetCharacterCardReq {
-    int32 card_id=1;
-}
-
-message GetCharacterCardRes {
-    CharacterCardMessage characterCard_message=1;
-}
-
-message GetCharacterCardListReq {}
-
-message GetCharacterCardListRes {
-    repeated CharacterCardMessage characterCard_messages=1;
-}
-
 /*
     장비 카드
 */
-message EquipCardMessage {
+message EquipCard {
 
-}
-
-message GetEquipCardReq {
-    int32 card_id=1;
-}
-
-message GetEquipCardRes {
-    EquipCardMessage equipCard_message=1;
-}
-
-message GetEquipCardListReq {}
-
-message GetEquipCardListRes {
-    repeated EquipCardMessage equipCard_messages=1;
 }
 
 /*
     스킬 카드
 */
-message SkillCardMessage {
+message SkillCard {
 
-}
-
-message GetSkillCardReq {
-    int32 card_id=1;
-}
-
-message GetSkillCardRes {
-    SkillCardMessage skillCard_message=1;
-}
-
-message GetSkillCardListReq {}
-
-message GetSkillCardListRes {
-    repeated SkillCardMessage skillCard_messages=1;
 }
 
 /*
-    올 카드
+    req, res
 */
-message GetCardListReq {}
+message CardId {
+    int32 cardId=1;
+}
+message GetList{}
 
-message GetCardListRes {
-    repeated CharacterCardMessage characterCard_messages=1;
-    repeated EquipCardMessage equipCard_message=2;
-    repeated SkillCardMessage skillCard_message=3;
+
+message CardList {
+    repeated CharacterCardList characterCards=1;
+    repeated EquipCardList equipCards=2;
+    repeated SkillCardList skillCards=3;
+}
+message CharacterCardList {
+    repeated CharacterCard characterCards=1;
+}
+message EquipCardList {
+    repeated EquipCard equipCards=1;
+}
+message SkillCardList {
+    repeated SkillCard skillCards=1;
 }

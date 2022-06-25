@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: card.proto
+// source: protos/v1/card/card.proto
 
 package __
 
@@ -22,13 +22,13 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CardClient interface {
-	GetCharacterCard(ctx context.Context, in *GetCharacterCardReq, opts ...grpc.CallOption) (*GetCharacterCardRes, error)
-	GetEquipCard(ctx context.Context, in *GetEquipCardReq, opts ...grpc.CallOption) (*GetEquipCardRes, error)
-	GetSkillCard(ctx context.Context, in *GetSkillCardReq, opts ...grpc.CallOption) (*GetSkillCardRes, error)
-	GetCharacterCardList(ctx context.Context, in *GetCharacterCardListReq, opts ...grpc.CallOption) (*GetCharacterCardListRes, error)
-	GetEquipCardList(ctx context.Context, in *GetEquipCardListReq, opts ...grpc.CallOption) (*GetEquipCardListRes, error)
-	GetSkillCardList(ctx context.Context, in *GetSkillCardListReq, opts ...grpc.CallOption) (*GetSkillCardListRes, error)
-	GetCardList(ctx context.Context, in *GetCardListReq, opts ...grpc.CallOption) (*GetCardListRes, error)
+	GetCharacterCard(ctx context.Context, in *CardId, opts ...grpc.CallOption) (*CharacterCard, error)
+	GetEquipCard(ctx context.Context, in *CardId, opts ...grpc.CallOption) (*EquipCard, error)
+	GetSkillCard(ctx context.Context, in *CardId, opts ...grpc.CallOption) (*SkillCard, error)
+	GetCharacterCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*CharacterCardList, error)
+	GetEquipCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*EquipCardList, error)
+	GetSkillCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*SkillCardList, error)
+	GetCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*CardList, error)
 }
 
 type cardClient struct {
@@ -39,8 +39,8 @@ func NewCardClient(cc grpc.ClientConnInterface) CardClient {
 	return &cardClient{cc}
 }
 
-func (c *cardClient) GetCharacterCard(ctx context.Context, in *GetCharacterCardReq, opts ...grpc.CallOption) (*GetCharacterCardRes, error) {
-	out := new(GetCharacterCardRes)
+func (c *cardClient) GetCharacterCard(ctx context.Context, in *CardId, opts ...grpc.CallOption) (*CharacterCard, error) {
+	out := new(CharacterCard)
 	err := c.cc.Invoke(ctx, "/card.Card/GetCharacterCard", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -48,8 +48,8 @@ func (c *cardClient) GetCharacterCard(ctx context.Context, in *GetCharacterCardR
 	return out, nil
 }
 
-func (c *cardClient) GetEquipCard(ctx context.Context, in *GetEquipCardReq, opts ...grpc.CallOption) (*GetEquipCardRes, error) {
-	out := new(GetEquipCardRes)
+func (c *cardClient) GetEquipCard(ctx context.Context, in *CardId, opts ...grpc.CallOption) (*EquipCard, error) {
+	out := new(EquipCard)
 	err := c.cc.Invoke(ctx, "/card.Card/GetEquipCard", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -57,8 +57,8 @@ func (c *cardClient) GetEquipCard(ctx context.Context, in *GetEquipCardReq, opts
 	return out, nil
 }
 
-func (c *cardClient) GetSkillCard(ctx context.Context, in *GetSkillCardReq, opts ...grpc.CallOption) (*GetSkillCardRes, error) {
-	out := new(GetSkillCardRes)
+func (c *cardClient) GetSkillCard(ctx context.Context, in *CardId, opts ...grpc.CallOption) (*SkillCard, error) {
+	out := new(SkillCard)
 	err := c.cc.Invoke(ctx, "/card.Card/GetSkillCard", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -66,8 +66,8 @@ func (c *cardClient) GetSkillCard(ctx context.Context, in *GetSkillCardReq, opts
 	return out, nil
 }
 
-func (c *cardClient) GetCharacterCardList(ctx context.Context, in *GetCharacterCardListReq, opts ...grpc.CallOption) (*GetCharacterCardListRes, error) {
-	out := new(GetCharacterCardListRes)
+func (c *cardClient) GetCharacterCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*CharacterCardList, error) {
+	out := new(CharacterCardList)
 	err := c.cc.Invoke(ctx, "/card.Card/GetCharacterCardList", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -75,8 +75,8 @@ func (c *cardClient) GetCharacterCardList(ctx context.Context, in *GetCharacterC
 	return out, nil
 }
 
-func (c *cardClient) GetEquipCardList(ctx context.Context, in *GetEquipCardListReq, opts ...grpc.CallOption) (*GetEquipCardListRes, error) {
-	out := new(GetEquipCardListRes)
+func (c *cardClient) GetEquipCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*EquipCardList, error) {
+	out := new(EquipCardList)
 	err := c.cc.Invoke(ctx, "/card.Card/GetEquipCardList", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -84,8 +84,8 @@ func (c *cardClient) GetEquipCardList(ctx context.Context, in *GetEquipCardListR
 	return out, nil
 }
 
-func (c *cardClient) GetSkillCardList(ctx context.Context, in *GetSkillCardListReq, opts ...grpc.CallOption) (*GetSkillCardListRes, error) {
-	out := new(GetSkillCardListRes)
+func (c *cardClient) GetSkillCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*SkillCardList, error) {
+	out := new(SkillCardList)
 	err := c.cc.Invoke(ctx, "/card.Card/GetSkillCardList", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -93,8 +93,8 @@ func (c *cardClient) GetSkillCardList(ctx context.Context, in *GetSkillCardListR
 	return out, nil
 }
 
-func (c *cardClient) GetCardList(ctx context.Context, in *GetCardListReq, opts ...grpc.CallOption) (*GetCardListRes, error) {
-	out := new(GetCardListRes)
+func (c *cardClient) GetCardList(ctx context.Context, in *GetList, opts ...grpc.CallOption) (*CardList, error) {
+	out := new(CardList)
 	err := c.cc.Invoke(ctx, "/card.Card/GetCardList", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -106,13 +106,13 @@ func (c *cardClient) GetCardList(ctx context.Context, in *GetCardListReq, opts .
 // All implementations must embed UnimplementedCardServer
 // for forward compatibility
 type CardServer interface {
-	GetCharacterCard(context.Context, *GetCharacterCardReq) (*GetCharacterCardRes, error)
-	GetEquipCard(context.Context, *GetEquipCardReq) (*GetEquipCardRes, error)
-	GetSkillCard(context.Context, *GetSkillCardReq) (*GetSkillCardRes, error)
-	GetCharacterCardList(context.Context, *GetCharacterCardListReq) (*GetCharacterCardListRes, error)
-	GetEquipCardList(context.Context, *GetEquipCardListReq) (*GetEquipCardListRes, error)
-	GetSkillCardList(context.Context, *GetSkillCardListReq) (*GetSkillCardListRes, error)
-	GetCardList(context.Context, *GetCardListReq) (*GetCardListRes, error)
+	GetCharacterCard(context.Context, *CardId) (*CharacterCard, error)
+	GetEquipCard(context.Context, *CardId) (*EquipCard, error)
+	GetSkillCard(context.Context, *CardId) (*SkillCard, error)
+	GetCharacterCardList(context.Context, *GetList) (*CharacterCardList, error)
+	GetEquipCardList(context.Context, *GetList) (*EquipCardList, error)
+	GetSkillCardList(context.Context, *GetList) (*SkillCardList, error)
+	GetCardList(context.Context, *GetList) (*CardList, error)
 	mustEmbedUnimplementedCardServer()
 }
 
@@ -120,25 +120,25 @@ type CardServer interface {
 type UnimplementedCardServer struct {
 }
 
-func (UnimplementedCardServer) GetCharacterCard(context.Context, *GetCharacterCardReq) (*GetCharacterCardRes, error) {
+func (UnimplementedCardServer) GetCharacterCard(context.Context, *CardId) (*CharacterCard, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCharacterCard not implemented")
 }
-func (UnimplementedCardServer) GetEquipCard(context.Context, *GetEquipCardReq) (*GetEquipCardRes, error) {
+func (UnimplementedCardServer) GetEquipCard(context.Context, *CardId) (*EquipCard, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEquipCard not implemented")
 }
-func (UnimplementedCardServer) GetSkillCard(context.Context, *GetSkillCardReq) (*GetSkillCardRes, error) {
+func (UnimplementedCardServer) GetSkillCard(context.Context, *CardId) (*SkillCard, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSkillCard not implemented")
 }
-func (UnimplementedCardServer) GetCharacterCardList(context.Context, *GetCharacterCardListReq) (*GetCharacterCardListRes, error) {
+func (UnimplementedCardServer) GetCharacterCardList(context.Context, *GetList) (*CharacterCardList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCharacterCardList not implemented")
 }
-func (UnimplementedCardServer) GetEquipCardList(context.Context, *GetEquipCardListReq) (*GetEquipCardListRes, error) {
+func (UnimplementedCardServer) GetEquipCardList(context.Context, *GetList) (*EquipCardList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEquipCardList not implemented")
 }
-func (UnimplementedCardServer) GetSkillCardList(context.Context, *GetSkillCardListReq) (*GetSkillCardListRes, error) {
+func (UnimplementedCardServer) GetSkillCardList(context.Context, *GetList) (*SkillCardList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSkillCardList not implemented")
 }
-func (UnimplementedCardServer) GetCardList(context.Context, *GetCardListReq) (*GetCardListRes, error) {
+func (UnimplementedCardServer) GetCardList(context.Context, *GetList) (*CardList, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCardList not implemented")
 }
 func (UnimplementedCardServer) mustEmbedUnimplementedCardServer() {}
@@ -155,7 +155,7 @@ func RegisterCardServer(s grpc.ServiceRegistrar, srv CardServer) {
 }
 
 func _Card_GetCharacterCard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCharacterCardReq)
+	in := new(CardId)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -167,13 +167,13 @@ func _Card_GetCharacterCard_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: "/card.Card/GetCharacterCard",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardServer).GetCharacterCard(ctx, req.(*GetCharacterCardReq))
+		return srv.(CardServer).GetCharacterCard(ctx, req.(*CardId))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Card_GetEquipCard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEquipCardReq)
+	in := new(CardId)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -185,13 +185,13 @@ func _Card_GetEquipCard_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: "/card.Card/GetEquipCard",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardServer).GetEquipCard(ctx, req.(*GetEquipCardReq))
+		return srv.(CardServer).GetEquipCard(ctx, req.(*CardId))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Card_GetSkillCard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSkillCardReq)
+	in := new(CardId)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -203,13 +203,13 @@ func _Card_GetSkillCard_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: "/card.Card/GetSkillCard",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardServer).GetSkillCard(ctx, req.(*GetSkillCardReq))
+		return srv.(CardServer).GetSkillCard(ctx, req.(*CardId))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Card_GetCharacterCardList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCharacterCardListReq)
+	in := new(GetList)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -221,13 +221,13 @@ func _Card_GetCharacterCardList_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: "/card.Card/GetCharacterCardList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardServer).GetCharacterCardList(ctx, req.(*GetCharacterCardListReq))
+		return srv.(CardServer).GetCharacterCardList(ctx, req.(*GetList))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Card_GetEquipCardList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEquipCardListReq)
+	in := new(GetList)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -239,13 +239,13 @@ func _Card_GetEquipCardList_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: "/card.Card/GetEquipCardList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardServer).GetEquipCardList(ctx, req.(*GetEquipCardListReq))
+		return srv.(CardServer).GetEquipCardList(ctx, req.(*GetList))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Card_GetSkillCardList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSkillCardListReq)
+	in := new(GetList)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ func _Card_GetSkillCardList_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: "/card.Card/GetSkillCardList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardServer).GetSkillCardList(ctx, req.(*GetSkillCardListReq))
+		return srv.(CardServer).GetSkillCardList(ctx, req.(*GetList))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Card_GetCardList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCardListReq)
+	in := new(GetList)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -275,7 +275,7 @@ func _Card_GetCardList_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/card.Card/GetCardList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CardServer).GetCardList(ctx, req.(*GetCardListReq))
+		return srv.(CardServer).GetCardList(ctx, req.(*GetList))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -317,5 +317,5 @@ var Card_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "card.proto",
+	Metadata: "protos/v1/card/card.proto",
 }

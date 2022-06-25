@@ -4,7 +4,7 @@ import (
 	cardpb "github.com/card-dungeon/server-card/protos/v1/card"
 )
 
-var CharCardList = []*cardpb.CharacterCardMessage{
+var CharCardList = []*cardpb.CharacterCard{
 	{
 		CardId: 0,
 		Name:   "제임스",
