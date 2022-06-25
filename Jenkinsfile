@@ -23,7 +23,7 @@ pipeline {
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
-                sh 'docker build . -t gmae199boy/server-card'
+                // sh 'docker build . -t gmae199boy/server-card'
             }
         }
         // stage('deliver') {
