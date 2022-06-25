@@ -9,6 +9,20 @@ pipeline {
         DOCKER_CREDENTIALS = credentials('dockerhub')
     }
     stages {
+        // stage("unit-test") {
+        //     steps {
+        //         echo 'UNIT TEST EXECUTION STARTED'
+        //         sh 'make unit-tests'
+        //     }
+        // }
+        
+        // stage("functional-test") {
+        //     steps {
+        //         echo 'FUNCTIONAL TEST EXECUTION STARTED'
+        //         sh 'make functional-tests'
+        //     }
+        // }
+
         stage("Build And Push Image") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
