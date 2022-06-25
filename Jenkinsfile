@@ -23,7 +23,6 @@ pipeline {
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
-                sh 'go get ./...'
                 sh 'docker build . -t gmae199boy/server-card'
             }
         }
@@ -32,7 +31,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_id', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
                 sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
-                sh 'docker push shadowshotx/server-card'
+                sh 'docker push gmae199boy/server-card'
                 }
             }
         }
