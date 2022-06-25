@@ -35,22 +35,24 @@ pipeline {
 
             steps {                           
                 script {
-                    node {
+                    // stage('Clone repository') {
+                    //     checkout scm
+                    // }
 
-                        // stage('Clone repository') {
-                        //     checkout scm
-                        // }
+                    stage('Build And Push image') {  
+                        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {                                                 
+                            def app = docker.build("${env.DOCKER_CREDENTIALS_USR}/server-card")
+                            app.push("latest")
+                        }
+                    }                       
+                }
+            }
+            stage('Remove Unused docker image') {
+                steps{
+                    sh "docker rmi gmae199boy/server-card:latest"
 
-                        stage('Build And Push image') {  
-                            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {                                                 
-                                def app = docker.build("${env.DOCKER_CREDENTIALS_USR}/server-card")
-                                app.push()
-                            }
-                        }              
-                    }                 
                 }
             }
         }
-
     }
 }
