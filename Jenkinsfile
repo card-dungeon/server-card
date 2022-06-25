@@ -63,7 +63,7 @@ pipeline {
                             docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id') {                                
                                 // Push image and tag it with our build number for versioning purposes.
                                 // app.push("${env.BUILD_NUMBER}")                      
-                                app.push(0.0.1)                      
+                                app.push("0.0.1")                      
 
                                 // Push the same image and tag it as the latest version (appears at the top of our version list).
                                 app.push("latest")
