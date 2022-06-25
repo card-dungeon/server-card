@@ -2,7 +2,8 @@ pipeline {
     // install golang 1.14 on Jenkins node
     agent any
     tools {
-        docker 'docker'
+        go 'go 1.18.3'
+        dockerTool 'docker'
     }
     environment {
         GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
