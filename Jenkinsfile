@@ -23,19 +23,17 @@ pipeline {
         stage("build") {
             steps {
                 echo 'BUILD EXECUTION STARTED'
-                sh 'go version'
-                sh 'go get ./...'
-                // sh 'docker build . -t shadowshotx/product-go-micro'
+                sh 'docker build . -t gmae199boy/server-card'
             }
         }
-        // stage('deliver') {
-        //     agent any
-        //     steps {
-        //         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
-        //         sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
-        //         sh 'docker push shadowshotx/product-go-micro'
-        //         }
-        //     }
-        // }
+        stage('deliver') {
+            agent any
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_id', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
+                sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
+                sh 'docker push shadowshotx/server-card'
+                }
+            }
+        }
     }
 }
