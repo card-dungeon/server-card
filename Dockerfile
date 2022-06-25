@@ -1,5 +1,7 @@
 FROM golang:1.18.3-alpine AS builder
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
+
+# linux
 RUN apk add --no-cache upx 
 # RUN apt update && apt install -y xz-utils && rm -rf /var/lib/apt/lists/*
 # ADD https://github.com/upx/upx/releases/download/v3.95/upx-3.95-amd64_linux.tar.xz /usr/local
@@ -13,7 +15,7 @@ COPY go.sum .
 RUN go mod tidy
 COPY . .
 RUN go build -a -ldflags '-s -w' -o main main.go
-RUN upx main
+RUN upx --lzma --best main
 
 FROM scratch
 COPY --from=builder /build .
