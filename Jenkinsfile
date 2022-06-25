@@ -41,7 +41,7 @@ pipeline {
                 // (NOTE 1: DOCKER_CREDENTIALS will be set to "your_username:your_password".)
                 // The new variables will always be YOUR_VARIABLE_NAME + _USR and _PSW.
                 // (NOTE 2: You can't print credentials in the pipeline for security reasons.)
-                DOCKER_CREDENTIALS = credentials('dockerhun_id')
+                DOCKER_CREDENTIALS = credentials('dockerhub_id')
             }
 
             steps {                           
