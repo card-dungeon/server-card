@@ -47,11 +47,11 @@ pipeline {
                     }                       
                 }
             }
-            stage('Remove Unused docker image') {
-                steps{
-                    sh "docker rmi gmae199boy/server-card:latest"
+        }
+        stage('Remove Unused docker image') {
+            steps{
+                sh "docker rmi gmae199boy/server-card:latest"
 
-                }
             }
         }
     }
