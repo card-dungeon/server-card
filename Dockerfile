@@ -20,4 +20,5 @@ RUN upx --lzma --best main
 
 FROM scratch
 COPY --from=builder /build .
+EXPOSE 10503
 CMD ["/main"]

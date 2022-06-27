@@ -16,7 +16,7 @@ import (
 
 var (
 	ADDRESS = flag.String("address", "localhost", "The server address")
-	PORT    = flag.Int("port", 9090, "The server port")
+	PORT    = flag.Int("port", 10503, "The server port")
 )
 
 type cardServer struct {

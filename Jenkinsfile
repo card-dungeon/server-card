@@ -36,6 +36,7 @@ pipeline {
         stage('Remove Unused docker image') {
             steps{
                 sh "docker rmi gmae199boy/server-card:latest"
+                // sh 'docker images -qf dangling=true | xargs -I{} docker rmi {}'
             }
         }
     }
