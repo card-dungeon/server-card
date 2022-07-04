@@ -48,7 +48,7 @@ func main() {
 	grpcServer := grpc.NewServer()
 	cardpb.RegisterCardServer(grpcServer, &cardServer{})
 	reflection.Register(grpcServer)
-	log.Printf("start gRPC server on %d port", *PORT)
+	log.Printf("start gRPC server on %s:%d", *ADDRESS, *PORT)
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)
 	}
