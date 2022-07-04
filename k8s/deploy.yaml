@@ -21,7 +21,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: portfolio
+                name: card
                 port:
                   number: 10503
   tls:
