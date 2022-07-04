@@ -43,7 +43,7 @@ spec:
     app: card
   ports:
     - port: 10503
-      protocol: TCP
+      protocol: GRPC
 ---
 apiVersion: apps/v1
 kind: Deployment
