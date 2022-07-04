@@ -23,7 +23,7 @@ spec:
     - host: card-dungeon.myroom.dev
       http:
         paths:
-          - path: /
+          - path: /cards
             pathType: Prefix
             backend:
               service:
