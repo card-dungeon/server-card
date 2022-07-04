@@ -6,10 +6,8 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"time"
 
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/keepalive"
 	"google.golang.org/grpc/reflection"
 
 	"github.com/card-dungeon/server-card/db"
@@ -17,7 +15,7 @@ import (
 )
 
 var (
-	ADDRESS = flag.String("address", "localhost", "The server address")
+	ADDRESS = flag.String("address", "0.0.0.0", "The server address")
 	PORT    = flag.Int("port", 10503, "The server port")
 )
 
@@ -47,11 +45,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	grpcServer := grpc.NewServer(
-		grpc.KeepaliveParams(keepalive.ServerParameters{
-			MaxConnectionIdle: 5 * time.Minute, // <--- This fixes it!
-		}),
-	)
+	grpcServer := grpc.NewServer()
 	cardpb.RegisterCardServer(grpcServer, &cardServer{})
 	reflection.Register(grpcServer)
 	log.Printf("start gRPC server on %d port", *PORT)
