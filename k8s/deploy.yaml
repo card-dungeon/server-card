@@ -10,7 +10,7 @@ metadata:
   namespace: card-dungeon
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    #    cert-manager.io/cluster-issuer: letsencrypt-production
     # nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
     nginx.ingress.kubernetes.io/grpc-backend: "true"
 #    nginx.ingress.kubernetes.io/ssl-redirect: "true"
@@ -18,24 +18,18 @@ spec:
   rules:
     - host: card-dungeon.myroom.dev
       http:
-        alpn:
-          - h2
-          - http/1.1
         paths:
           - path: /
             pathType: Prefix
             backend:
-              alpn:
-                - h2
-                - http/1.1
               service:
                 name: card
                 port:
                   number: 10503
-  tls:
-    - hosts:
-        - card-dungeon.myroom.dev
-      secretName: card-dungeon
+#  tls:
+#    - hosts:
+#        - card-dungeon.myroom.dev
+#      secretName: card-dungeon
 ---
 apiVersion: v1
 kind: Service
