@@ -18,10 +18,16 @@ spec:
   rules:
     - host: card-dungeon.myroom.dev
       http:
+        alpn:
+          - h2
+          - http/1.1
         paths:
           - path: /
             pathType: Prefix
             backend:
+              alpn:
+                - h2
+                - http/1.1
               service:
                 name: card
                 port:
@@ -43,7 +49,7 @@ spec:
     app: card
   ports:
     - port: 10503
-      protocol: GRPC
+      protocol: TCP
 ---
 apiVersion: apps/v1
 kind: Deployment
